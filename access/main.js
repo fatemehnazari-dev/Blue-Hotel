@@ -31,3 +31,67 @@ class Reservation {
   }
 }
 
+class Hotel {
+  constructor() {
+    this.rooms = [];
+    this.reservations = [];
+  }
+
+  addRoom(number, type, price) {
+    const isExistRoom = this.rooms.some((item) => {
+      return item.number == number;
+    });
+    if (isExistRoom) {
+      //درس صورت تطابق داشتن این دو عدد
+      throw new Error("This room currently exists.");
+    }
+    const room = new Room(price, number, type);
+    this.rooms.push(room);
+    this.save();
+  }
+
+  save() {
+    localStorage.setItem("rooms", JSON.stringify(this.rooms));
+    localStorage.setItem("reservations", JSON.stringify(this.reservations));
+  }
+
+  load() {
+    const roomsData = localStorage.getItem("rooms");
+    if (roomsData) {
+      this.rooms = JSON.parse(roomsData).map((item) => {
+        const room = new Room(item.price, item.number, item.type);
+        room.id = item.id;
+        return room;
+      });
+    }
+
+    //Reservation
+    const reservationsData = localStorage.getItem("reservations");
+    if (reservationsData) {
+      this.reservations = JSON.parse(reservationsData).map((item) => {
+        const reservation = new Reservation(
+          item.guestName,
+          item.guestPhone,
+          item.roomId,
+          item.checkIn,
+          item.checkOut,
+        );
+        reservation.reservationId = item.reservationId;
+        return reservation;
+      });
+    }
+  }
+
+  addReservation(guestName, guestPhone, roomId, checkIn, checkOut) {
+    const reservation = new Reservation(
+      guestName,
+      guestPhone,
+      roomId,
+      checkIn,
+      checkOut,
+    );
+    this.reservations.push(reservation);
+    this.save();
+    return reservation;
+  }
+}
