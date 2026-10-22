@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blue Hotel</title>
+    <link rel="stylesheet" href="access/style.css
+    " />
+    <script src="access/main.js" defer></script>
+  </head>
+  <body>
+    <div id="app">
+      <section id="main-section">
+        <nav class="tabs">
+          <button class="tab-button active">مدیریت رزرو</button>
+          <button class="tab-button"> مدیریت اتاق</button>
+        </nav>
+        <div class="tab-content">
+          <section id="tabReservation">
+            <form action="" id="reservation">
+              <label for="guestName">نام مهمان</label>
+              <input type="text" placeholder="enter your name" id="guestName" />
+              <label for="guestNumber">شماره تماس</label>
+              <input type="number" placeholder="0912xxxxx" id="guestNumber" />
+              <label for="guestRoom">نوع اتاق</label>
+              <select name="roomType" id="roomType">
+                <option value="">نوع اتاق را انتخاب کنید</option>
+                <option value="single">تک نفره</option>
+                <option value="duble">دونفره</option>
+                <option value="suite">سوییت</option>
+              </select>
+              <label for="guestInput">تاریخ ورود </label>
+              <input type="date" id="guestInput" />
+              <label for="guestOutput">تاریخ خروج</label>
+              <input type="date" id="guestOutput" />
+            </form>
+            <button>رزرو کن</button>
+          </section>
+          <section id="tab-room">
+            <form action="" id="roomform">
+              <label for="roomNumber">شماره اتاق</label>
+              <input type="number" id="roomNumber" />
+              <label for="roomType">نوع اتاق</label>
+              <select name="roomType" id="roomType">
+                <option value="">نوع اتاق را انتخاب کنید</option>
+                <option value="single">تک نفره</option>
+                <option value="duble">دونفره</option>
+                <option value="suite">سوییت</option>
+              </select>
+              <label for="price">قیمت</label>
+              <input type="text" id="price" />
+            </form>
+            <button>افزودن اتاق</button>
+          </section>
+        </div>
+      </section>
+
+      <section id="roomSection">
+        <h2>لیست اتاق ها</h2>
+        <div id="roomList"></div>
+        <h2>رزروهای ثبت شده</h2>
+        <div id="reservationGrid"></div>
+      </section>
+    </div>
+  </body>
+</html>
