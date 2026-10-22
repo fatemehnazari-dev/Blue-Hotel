@@ -1,0 +1,310 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  direction: rtl;
+  background: linear-gradient(135deg, #10162b, #1c2442, #10172d);
+  color: #f5f7ff;
+  min-height: 100vh;
+  padding: 25px;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#app {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+/* Right column */
+#main-section {
+  background: rgba(22, 31, 58, 0.94);
+  border: 1px solid rgba(127, 145, 205, 0.22);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  min-width: 0;
+}
+
+/* Management tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid #353e65;
+  margin-bottom: 25px;
+}
+
+.tab-button {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #aab5d5;
+  padding: 15px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  border-bottom: 3px solid transparent;
+  transition: 0.25s;
+}
+
+.tab-button:hover {
+  color: #ffffff;
+  background: rgba(109, 99, 255, 0.08);
+}
+
+.tab-button.active {
+  color: #ffffff;
+  border-bottom-color: #7868ff;
+  background: linear-gradient(to top, rgba(105, 91, 255, 0.15), transparent);
+}
+
+/* forms  */
+.tab-content {
+  width: 100%;
+}
+
+#tabReservation,
+#tab-room {
+  background: rgba(16, 24, 47, 0.65);
+  border: 1px solid rgba(127, 145, 205, 0.13);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+#tabReservation form,
+#roomform {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  color: #dbe3ff;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 7px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 9px;
+  border: 1px solid #3b496f;
+  background: #202c4b;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+  transition: 0.25s;
+}
+
+input::placeholder {
+  color: #8997ba;
+}
+
+input:focus,
+select:focus {
+  border-color: #42dce9;
+  box-shadow: 0 0 0 3px rgba(66, 220, 233, 0.1);
+}
+
+select {
+  cursor: pointer;
+}
+
+select option {
+  background: #202c4b;
+  color: #ffffff;
+}
+
+/* forms button  */
+#tabReservation > button,
+#tab-room > button {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #7162ff, #326ce8);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(91, 93, 255, 0.2);
+  transition: 0.25s;
+}
+
+#tabReservation > button:hover,
+#tab-room > button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+}
+
+/* Left column */
+#roomSection {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  background: rgba(22, 31, 58, 0.94);
+  border: 1px solid rgba(127, 145, 205, 0.22);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* title  */
+#roomSection h2 {
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #7465ff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+#roomList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+
+#reservationGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* Reservations & Rooms card */
+#roomList > *,
+#reservationGrid > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 16px;
+  border: 1px solid #42dce9;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #25385c, #1c2746);
+  color: #f5f7ff;
+  box-shadow: 0 0 12px rgba(66, 220, 233, 0.06);
+  transition: 0.25s;
+}
+
+#roomList > *:hover,
+#reservationGrid > *:hover {
+  border-color: #8b80ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(80, 100, 255, 0.13);
+}
+
+
+#roomList h3,
+#reservationGrid h3 {
+  font-size: 14px;
+  margin-bottom: 9px;
+  color: #ffffff;
+}
+
+#roomList p,
+#reservationGrid p {
+  color: #c2cde8;
+  font-size: 12px;
+  line-height: 2;
+  margin-bottom: 4px;
+}
+
+
+#roomList button,
+#reservationGrid button {
+  margin-top: 10px;
+  padding: 7px 12px;
+  border: 1px solid #8278ff;
+  border-radius: 7px;
+  background: rgba(115, 98, 255, 0.15);
+  color: #e7e4ff;
+  font-size: 11px;
+  transition: 0.2s;
+}
+
+#roomList button:hover,
+#reservationGrid button:hover {
+  background: #7162ff;
+  color: #ffffff;
+}
+
+/* Responsive design */
+@media (max-width: 950px) {
+  body {
+    padding: 15px;
+  }
+
+  #app {
+    grid-template-columns: 1fr;
+  }
+
+  #roomSection {
+    order: 2;
+  }
+
+  #main-section {
+    order: 1;
+  }
+}
+
+
+@media (max-width: 520px) {
+  body {
+    padding: 9px;
+  }
+
+  #main-section,
+  #roomSection {
+    padding: 14px;
+    border-radius: 13px;
+  }
+
+  #tabReservation,
+  #tab-room {
+    padding: 14px;
+  }
+
+  .tab-button {
+    font-size: 12px;
+    padding: 12px 5px;
+  }
+
+  #reservationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  input,
+  select {
+    padding: 11px;
+  }
+
+  #roomSection h2 {
+    font-size: 16px;
+  }
+}
